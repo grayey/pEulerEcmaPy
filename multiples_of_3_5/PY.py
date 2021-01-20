@@ -10,10 +10,12 @@ def verify_nots(digit,args):
 
 def multiples(limit=1000, args=(3,5,)):
     sum_of_mulitples = 0;
-    for i in range(limit):
+    minimum = min(args);
+    for i in range(minimum,limit):
         if verify_nots(i,args):
             sum_of_mulitples+=i;
     return sum_of_mulitples;
 
-print(multiples()
+
+print(multiples())
 
