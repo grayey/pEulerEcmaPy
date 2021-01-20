@@ -1,15 +1,22 @@
 
-const multiplesOf3And5 = () =>{
+
+const verifyNots = (digit,args) => {
+    let isVerified = false;
+    args = new Set(args);
+    Array.from(args).forEach( arg => isVerified = (isVerified || !(digit%arg)) )
+    return isVerified;
+}
     
-    let sumOfMulitples = 0
 
-    for(let i=3; i<1000; i++){
-        if(!(i%3) || !(i%5)){
-            sumOfMulitples+=i;
-        }
 
+const multiples = (limit = 1000, args = [3,5]) => {
+    let sumOfMulitples = 0;
+    const mininimum = Math.min(...args);
+    for(let i=mininimum; i<limit; i++){
+        if(verifyNots(i, args)) sumOfMulitples+=i;
     }
     return sumOfMulitples;
 }
 
-console.log(multiplesOf3And5())
+console.log(multiples())
+
